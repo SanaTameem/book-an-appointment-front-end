@@ -1,0 +1,304 @@
+body {
+  margin: 0;
+  font-family:
+    'Roboto+Slab',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Courier New',
+    monospace;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  color: #fff;
+}
+
+section {
+  margin-top: 70px;
+  width: 100%;
+  max-width: 420px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 1rem;
+}
+
+.login-register-style {
+  background: rgba(0, 86, 143, 0.5);
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+}
+
+/* a,
+a:visited {
+  color: #fff;
+} */
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+button,
+textarea {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid #1a237e;
+}
+
+label,
+button {
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem;
+}
+
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.errMsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.line {
+  display: inline-block;
+}
+
+.flexGrow {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.login {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 0;
+}
+
+.page {
+  z-index: -10;
+  height: 100vh;
+}
+
+.style-card {
+  width: 100vw;
+  height: 90vh;
+  margin-left: 300px;
+}
+
+.group-item:nth-child(odd) {
+  background-color: #d0d4fa;
+}
+
+.info-section {
+  padding-left: 90px;
+}
+
+@media (max-width: 768px) {
+  section {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 420px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+
+  .skeleton-img {
+    height: 200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .skeleton-img {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .imghight {
+    height: 550px;
+  }
+
+  .skeleton-img {
+    height: 400px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .imghight {
+    height: 650px;
+  }
+
+  .skeleton-img {
+    height: 60vh;
+  }
+}
+
+.border-color {
+  border: 1px solid #1a237e;
+}
+
+.btn-color {
+  background: #1a237e;
+}
+
+.text-color {
+  color: #1a237e;
+}
+
+.text-login {
+  color: #d8d8df;
+}
+
+.skeleton {
+  opacity: 0.8;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-img {
+  width: 100%;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.125rem;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 2.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.125rem;
+}
+
+.skeleton-icon {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  height: 0.9rem;
+  width: 10%;
+}
+
+.skeleton-button {
+  padding: 0.5rem 2rem;
+}
+
+.skeleton-card-img {
+  width: 300px;
+  height: 9rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.325rem;
+}
+
+.skeleton-card-header {
+  width: 110px;
+  height: 1.1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.125rem;
+}
+
+.skeleton-card-text {
+  width: 300px;
+  height: 0.85rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.125rem;
+}
+
+.skeleton-card {
+  width: 320px;
+  height: 2rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.125rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 13%, 42%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
