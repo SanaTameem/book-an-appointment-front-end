@@ -388,6 +388,7 @@ button {
 
 .Add-car-container {
   width: 60%;
+  z-index: 0;
 }
 
 .delete-car-container,
@@ -532,6 +533,7 @@ button {
     display: flex;
     width: 100%;
     position: fixed;
+    z-index: 1;
   }
 
   .Add-car-container,
@@ -548,6 +550,7 @@ button {
     justify-content: end;
     background-color: #fff;
     padding-right: 16px;
+    z-index: 2;
   }
 
   .license-container {
