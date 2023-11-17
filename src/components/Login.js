@@ -114,7 +114,7 @@ const Login = () => {
       <p>
         Need an Account?
         <br />
-        <Link to="/" className="text-light">
+        <Link to="/register" className="text-light">
           <span className="text-login">Sign Up</span>
         </Link>
       </p>
