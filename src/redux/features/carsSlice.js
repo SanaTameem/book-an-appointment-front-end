@@ -55,15 +55,11 @@ const carsSlice = createSlice({
     },
     reserveCar(state, action) {
       const id = action.payload;
-      const reserved = state.cars.cars.find(
-        (car) => car.id === id,
-      );
+      const reserved = state.cars.cars.find((car) => car.id === id);
       state.reservedCar = reserved;
     },
     carRemoved(state, action) {
-      const car = state.cars.cars.find(
-        (car) => car.id === action.payload,
-      );
+      const car = state.cars.cars.find((car) => car.id === action.payload);
       if (car) {
         car.isRemoved = true;
       }
@@ -71,16 +67,16 @@ const carsSlice = createSlice({
   },
   extraReducers: {
     // Fetch Cars
-    // [fetchCars.pending]: (state) => {
-    //   state.isLoading = true;
-    // },
-    // [fetchCars.fulfilled]: (state, action) => {
-    //   state.isLoading = false;
-    //   state.cars = action.payload;
-    // },
-    // [fetchCars.rejected]: (state) => {
-    //   state.isLoading = false;
-    // },
+    [fetchCars.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [fetchCars.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.cars = action.payload;
+    },
+    [fetchCars.rejected]: (state) => {
+      state.isLoading = false;
+    },
     // Add New Car
     [addNewCars.pending]: (state) => {
       state.isLoading = true;

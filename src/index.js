@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthProvider';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 import store from './redux/store';
