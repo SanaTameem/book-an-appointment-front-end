@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 
 const initialState = {
   cars: [],
+  carById: {},
   reservedCar: {},
   isLoading: true,
   error: null,
@@ -11,6 +12,17 @@ const initialState = {
 
 export const fetchCars = createAsyncThunk('cars/fetchCars', async (userId) => {
   const url = `http://127.0.0.1:3000/api/v1/users/${userId}/cars`;
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    throw Error(error);
+  }
+});
+
+export const fetchCarById = createAsyncThunk('cars/fetchCarById', async (data) => {
+  console.log(data);
+  const url = `http://127.0.0.1:3000/api/v1/users/${data.userId}/cars/${data.carId}`;
   try {
     const response = await axios.get(url);
     return response.data;
@@ -75,6 +87,17 @@ const carsSlice = createSlice({
       state.cars = action.payload;
     },
     [fetchCars.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    // Fetch Car By Id
+    [fetchCarById.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [fetchCarById.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.carById = action.payload;
+    },
+    [fetchCarById.rejected]: (state) => {
       state.isLoading = false;
     },
     // Add New Car
