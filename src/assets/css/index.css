@@ -463,7 +463,7 @@ button {
   width: 25%;
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  gap: 40px;
   justify-content: center;
 }
 
@@ -494,6 +494,8 @@ button {
   height: 35px;
   padding: 6px;
   font-weight: 600;
+  margin: 0;
+  font-size: 18px;
 }
 
 .car-amount-container p:nth-child(odd) {

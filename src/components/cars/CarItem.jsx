@@ -11,7 +11,7 @@ const CarItem = ({ car, classNames }) => {
 
   const handleDispatch = (carId) => {
     dispatch(fetchCarById({ userId: id, carId }));
-    navigate('/details');
+    navigate(`/details/${carId}`);
   };
 
   return (
