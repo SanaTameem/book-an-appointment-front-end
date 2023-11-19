@@ -1,9 +1,11 @@
-import React from "react";
+import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   fetchReservedCars,
   createCarReservation,
   removeCarReservation,
-} from "./reservationAction";
+} from './reservationAction';
 // Reducer
 const initialState = {
   reservedCars: [],
@@ -13,7 +15,7 @@ const initialState = {
 };
 
 const reservationsSlice = createSlice({
-  name: "reservations",
+  name: 'reservations',
   initialState,
 
   reducers: {},
@@ -22,7 +24,7 @@ const reservationsSlice = createSlice({
     builder
       .addCase(createCarReservation.pending, (state) => {
         state.loading = true;
-        state.showError = null; // Reset error when starting an asynchronous operation
+        state.showError = null;
       })
       .addCase(createCarReservation.fulfilled, (state, action) => {
         state.loading = false;
@@ -34,7 +36,7 @@ const reservationsSlice = createSlice({
       })
       .addCase(fetchReservedCars.pending, (state) => {
         state.loading = true;
-        state.showError = null; // Reset error when starting an asynchronous operation
+        state.showError = null;
       })
       .addCase(fetchReservedCars.fulfilled, (state, action) => {
         state.loading = false;
@@ -42,7 +44,7 @@ const reservationsSlice = createSlice({
       })
       .addCase(fetchReservedCars.rejected, (state) => {
         state.loading = false;
-        state.showError = "Failed to fetch car reservations";
+        state.showError = 'Failed to fetch car reservations';
       })
       .addCase(removeCarReservation.pending, (state) => {
         state.loading = true;
@@ -50,12 +52,11 @@ const reservationsSlice = createSlice({
       })
       .addCase(removeCarReservation.fulfilled, (state, action) => {
         state.loading = false;
-        // Assuming the response includes the removed reservation ID
         const removedReservationId = action.payload.id;
         state.reservedCars = state.reservedCars.filter(
-          (reservation) => reservation.id !== removedReservationId
+          (reservation) => reservation.id !== removedReservationId,
         );
-        toast.success("Reservation successfully removed 🚗");
+        toast.success('Reservation successfully removed 🚗');
       })
       .addCase(removeCarReservation.rejected, (state, action) => {
         state.loading = false;

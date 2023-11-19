@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper';
-import { fetchCars } from '../../redux/features/carsSlice';
+import { fetchCars } from '../../redux/features/carsAction';
 import CarItem from './CarItem';
 import Navbar from '../Navbar';
 import 'swiper/swiper.min.css';
@@ -16,8 +16,6 @@ const MainPage = () => {
   const error = useSelector((state) => state.cars.error);
 
   const { id } = JSON.parse(localStorage.getItem('Token')) || {};
-  console.log(carsData);
-
   useEffect(() => {
     dispatch(fetchCars(id));
   }, [dispatch, id]);

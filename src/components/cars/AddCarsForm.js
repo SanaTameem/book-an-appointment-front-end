@@ -1,30 +1,55 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { useDispatch } from 'react-redux';
-import { addNewCars, fetchCars } from '../../redux/features/carsSlice';
+import { ToastContainer, toast } from 'react-toastify';
+import { addNewCars, fetchCars } from '../../redux/features/carsAction';
 import Navbar from '../Navbar';
+import 'react-toastify/dist/ReactToastify.css';
+
+// Define the initial state for the reducer
+const initialState = {
+  name: '',
+  image: '',
+  model: '',
+  financeFee: '',
+  totalAmount: '',
+  discription: '',
+  duration: '',
+  pending: 'Add Cars',
+};
+
+// Define the reducer function
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'SET_FIELD':
+      return { ...state, [action.field]: action.value };
+    case 'SET_PENDING':
+      return { ...state, pending: action.value };
+    case 'RESET_FORM':
+      return initialState;
+    default:
+      return state;
+  }
+};
 
 const AddCarsForm = () => {
   const dispatch = useDispatch();
   const { id } = JSON.parse(localStorage.getItem('Token')) || {};
-  const [name, setTitle] = useState('');
-  const [image, setPhoto] = useState('');
-  const [model, setModel] = useState('');
-  const [financeFee, setFinanceFee] = useState('');
-  const [totalAmount, setTotalAmount] = useState('');
-  const [discription, setDiscription] = useState('');
-  const [duration, setDuration] = useState('');
-  const [pending, setPending] = useState('Add Cars');
+  // Use useReducer hook to manage state
+  const [state, localDispatch] = useReducer(reducer, initialState);
+  // Destructure values from the state
+  const {
+    name,
+    image,
+    model,
+    financeFee,
+    totalAmount,
+    discription,
+    duration,
+    pending,
+  } = state;
 
-  const nameHandlers = (e) => setTitle(e.target.value);
-  const photoHandlers = (e) => setPhoto(e.target.value);
-  const modelHandlers = (e) => setModel(e.target.value);
-  const financeFeeHandlers = (e) => setFinanceFee(e.target.value);
-  const totalAmountHandlers = (e) => setTotalAmount(e.target.value);
-  const DiscriptionHandlers = (e) => setDiscription(e.target.value);
-  const DurationHandlers = (e) => {
-    const value = e.target.value.trim();
-    const parsedValue = value === '' ? '' : parseInt(value, 10);
-    setDuration(parsedValue);
+  const fieldHandlers = (field, value) => {
+    localDispatch({ type: 'SET_FIELD', field, value });
   };
 
   const postDispatcher = () => {
@@ -39,131 +64,131 @@ const AddCarsForm = () => {
       duration,
     };
 
-    setPending('...Adding');
+    localDispatch({ type: 'SET_PENDING', value: '...Adding' });
 
     console.log('auth object:', id);
-    dispatch(addNewCars({ car: carsDetail, id }));
-
-    setTimeout(() => {
-      dispatch(fetchCars(id));
-      setPending('Add Cars');
-    }, 1000);
+    dispatch(addNewCars({ car: carsDetail, id }))
+      .then(() => {
+        toast.success('Car added successfully!');
+        localDispatch({ type: 'RESET_FORM' }); // Reset form data
+      })
+      .catch((error) => {
+        toast.error(`Error adding car: ${error.message}`);
+      })
+      .finally(() => {
+        dispatch(fetchCars(id));
+        localDispatch({ type: 'SET_PENDING', value: 'Add Cars' });
+      });
   };
 
   return (
     <>
       <Navbar />
       <div className="Add-car-container container mt-3">
-        <div className="card ">
-          {/* <div className="card-header header-title">
+        <div className="card">
+          <div className="card-header header-title">
             <div className="col-12 d-flex justify-content-center">
-              <h2>ADD NEW Cars</h2>
+              <h3>ADD CARS</h3>
             </div>
-          </div> */}
+          </div>
           <div className="card-body">
             <form>
-              <div className="mb-2">
-                <input
-                  className="form-control"
-                  type="text"
-                  name="cars_name"
-                  id="cars_id"
-                  placeholder="Cars title"
-                  onChange={(e) => {
-                    nameHandlers(e);
-                  }}
-                />
-              </div>
-              <div className="mb-2">
-                <input
-                  className="form-control"
-                  type="file"
-                  name="cars_photo"
-                  id="cars_photo"
-                  placeholder="Cars Photo"
-                  onChange={(e) => {
-                    photoHandlers(e);
-                  }}
-                />
-              </div>
-              <div className="mb-2">
-                <input
-                  className="form-control"
-                  type="text"
-                  name="cars_model"
-                  id="cars_model"
-                  placeholder="Cars model"
-                  onChange={(e) => {
-                    modelHandlers(e);
-                  }}
-                />
-              </div>
-              <div className="mb-2">
-                <input
-                  className="form-control"
-                  type="text"
-                  name="cars_financefee"
-                  id="cars_financefee"
-                  placeholder="Cars finance fee"
-                  onChange={(e) => {
-                    financeFeeHandlers(e);
-                  }}
-                />
-              </div>
-              <div className="mb-2">
-                <input
-                  className="form-control"
-                  type="text"
-                  name="cars_totalAmount"
-                  id="cars_totalAmount"
-                  placeholder="Cars total Amount"
-                  onChange={(e) => {
-                    totalAmountHandlers(e);
-                  }}
-                />
-              </div>
-              <div className="mb-2">
-                <textarea
-                  cols="30"
-                  rows="3"
-                  className="form-control"
-                  type="text"
-                  name="cars_discription"
-                  id="cars_Discription"
-                  placeholder="Cars Discription"
-                  onChange={(e) => {
-                    DiscriptionHandlers(e);
-                  }}
-                />
-              </div>
-              <div className="mb-2">
-                <input
-                  className="form-control"
-                  type="text"
-                  name="cars_duration"
-                  id="cars_Duration"
-                  placeholder="Cars Duration"
-                  onChange={(e) => {
-                    DurationHandlers(e);
-                  }}
-                />
-              </div>
-              <div className="mb-2 d-flex justify-content-center align-items-center">
-                <button
-                  className="btn btn-primary"
-                  type="button"
-                  name="Add-Cars"
-                  id="AddCars"
-                  onClick={() => {
-                    postDispatcher();
-                  }}
-                >
-                  {pending}
-                </button>
+              <div className="mb-3 row">
+                <div className="col-sm-12 col-md-6 mb-3">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="cars_name"
+                    id="cars_id"
+                    placeholder="Cars title"
+                    value={name}
+                    onChange={(e) => fieldHandlers('name', e.target.value)}
+                  />
+                </div>
+                <div className="col-sm-12 col-md-6 mb-3">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="cars_photo"
+                    id="cars_photo"
+                    placeholder="Enter Image URL"
+                    value={image}
+                    onChange={(e) => fieldHandlers('image', e.target.value)}
+                  />
+                </div>
+                <div className="col-sm-12 col-md-6 mb-3">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="cars_model"
+                    id="cars_model"
+                    placeholder="Cars model"
+                    value={model}
+                    onChange={(e) => fieldHandlers('model', e.target.value)}
+                  />
+                </div>
+                <div className="col-sm-12 col-md-6 mb-3">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="cars_financefee"
+                    id="cars_financefee"
+                    placeholder="Cars finance fee"
+                    value={financeFee}
+                    onChange={(e) => fieldHandlers('financeFee', e.target.value)}
+                  />
+                </div>
+                <div className="col-sm-12 col-md-6 mb-3">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="cars_totalAmount"
+                    id="cars_totalAmount"
+                    placeholder="Cars total Amount"
+                    value={totalAmount}
+                    onChange={(e) => fieldHandlers('totalAmount', e.target.value)}
+                  />
+                </div>
+                <div className="col-sm-12 col-md-6 mb-3">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="cars_duration"
+                    id="cars_Duration"
+                    placeholder="Cars Duration"
+                    value={duration}
+                    onChange={(e) => fieldHandlers('duration', e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <textarea
+                    cols="30"
+                    rows="3"
+                    className="form-control"
+                    type="text"
+                    name="cars_discription"
+                    id="cars_Discription"
+                    placeholder="Cars Discription"
+                    value={discription}
+                    onChange={(e) => fieldHandlers('discription', e.target.value)}
+                  />
+                </div>
+                <div className="mb-3 d-flex justify-content-center align-items-center">
+                  <button
+                    className="btn btn-primary"
+                    type="button"
+                    name="Add-Cars"
+                    id="AddCars"
+                    onClick={postDispatcher}
+                  >
+                    {pending}
+                  </button>
+                </div>
               </div>
             </form>
           </div>
         </div>
+        <ToastContainer />
       </div>
     </>
   );
