@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import useAuth from '../hooks/useAuth';
 import logo from '../assets/logo.png';
 
 function Navbar() {
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const location = useLocation();
+  const { setAuth } = useAuth();
+  const navigate = useNavigate();
 
+  const { authToken } = JSON.parse(localStorage.getItem('Token')) || {};
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
   };
@@ -15,7 +21,25 @@ function Navbar() {
   const closeSidebar = () => {
     setSidebarVisible(false);
   };
-
+  const handleLogout = () => {
+    setAuth({});
+    localStorage.removeItem('Token');
+    if (authToken) {
+      try {
+        axios.delete('http://localhost:3000/auth/logout', {
+          headers: {
+            Authorization: authToken,
+            'Content-Type': 'application/json',
+          },
+        });
+        toast.success('Logout Successfully');
+      } catch (err) {
+        toast.error('Opps😥 failed To logout');
+        throw Error(err);
+      }
+    }
+    navigate('/login');
+  };
   return (
     <>
       <div className="mob-nav">
@@ -31,6 +55,14 @@ function Navbar() {
           <Link to="/cars/delete" className={`nav-link ${location.pathname === '/cars/delete' ? 'active' : ''}`} onClick={closeSidebar}>Delete Car</Link>
           <Link to="/reserveCars" className={`nav-link ${location.pathname === '/reserveCars' ? 'active' : ''}`} onClick={closeSidebar}>Add Reservation</Link>
           <Link to="/reservationsList" className={`nav-link ${location.pathname === '/reservationsList' ? 'active' : ''}`} onClick={closeSidebar}>My Reservations</Link>
+          <button
+            disabled={!authToken}
+            onClick={handleLogout}
+            type="button"
+            className="list-group-item list-group-item-action "
+          >
+            Log Out
+          </button>
         </div>
         <div className="license-container">
           <p className="license">&copy; 2023 Test Drive Zone</p>
