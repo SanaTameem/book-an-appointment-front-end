@@ -11,10 +11,9 @@ import DeleteCar from './components/cars/DeleteCar';
 import Reservations from './components/reservations/Reservations';
 import CarDetails from './components/cars/CarDetails';
 import MyReservation from './components/reservations/myReservation';
+import CarReservation from './components/reservations/reserveCar';
 
 const App = () => (
-  // <div className="container-fluid main-height ">
-  // <main className="col">
   <>
     <Routes>
       <Route path="/login" element={<Login />} />
@@ -26,11 +25,10 @@ const App = () => (
         <Route path="/cars/delete" element={<DeleteCar />} />
         <Route path="/reservationsList" element={<MyReservation />} />
         <Route path="/reservations/:id" element={<Reservations />} />
+        <Route path="/reserveCars" element={<CarReservation />} />
       </Route>
     </Routes>
   </>
-  // </main>
-  // </div>
 );
 
 export default App;
