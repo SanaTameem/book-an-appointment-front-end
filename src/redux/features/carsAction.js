@@ -50,3 +50,23 @@ export const addNewCars = createAsyncThunk('cars/addNewCars', async (data) => {
     throw Error(error);
   }
 });
+
+export const deleteCar = createAsyncThunk('cars/deleteCar', async (data, thunkAPI) => {
+  const { userId, carId, authToken } = data;
+  try {
+    const config = {
+      headers: {
+        authorization: authToken,
+      },
+    };
+    const url = `http://127.0.0.1:3000/api/v1/users/${userId}/cars/${carId}`;
+
+    const response = await axios.delete(url, config);
+    thunkAPI.dispatch(fetchCars());
+    toast.success('Car Successfully deleted');
+    return { carId, success: response.statusText === 'OK' };
+  } catch (error) {
+    toast.error('Failed to delete Car');
+    throw Error(error);
+  }
+});

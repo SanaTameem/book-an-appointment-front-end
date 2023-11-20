@@ -175,7 +175,7 @@ const AddCarsForm = () => {
                 </div>
                 <div className="mb-3 d-flex justify-content-center align-items-center">
                   <button
-                    className="btn btn-primary"
+                    className="btn btn-primary add-btn"
                     type="button"
                     name="Add-Cars"
                     id="AddCars"
