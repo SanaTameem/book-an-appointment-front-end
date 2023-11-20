@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { fetchCarById } from '../../redux/features/carsSlice';
+import { fetchCarById } from '../../redux/features/carsAction';
 
 const CarItem = ({ car, classNames }) => {
   const { id } = JSON.parse(localStorage.getItem('Token')) || {};
