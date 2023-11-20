@@ -1,23 +1,31 @@
 // MyReservation component
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { fetchReservedCars } from '../../redux/features/reservationAction';
+import { fetchReservedCars, removeCarReservation } from '../../redux/features/reservationAction';
 import ReservationList from './reservationList';
 import Navbar from '../Navbar';
 
 const MyReservation = () => {
   const dispatch = useDispatch();
   const reservationsList = useSelector((state) => state.reservations.reservedCars);
-  console.log('The reservation List', reservationsList);
   const loading = useSelector((state) => state.reservations.loading);
   const showError = useSelector((state) => state.reservations.showError);
 
   useEffect(() => {
     dispatch(fetchReservedCars());
   }, [dispatch]);
-
+  const handleRemoveReservation = (reservationID) => {
+    dispatch(removeCarReservation(reservationID))
+      .then(() => {
+        toast.success('Reservation removed successfully');
+        dispatch(fetchReservedCars());
+      })
+      .catch((error) => {
+        toast.error(`Failed to remove reservation: ${error.message}`);
+      });
+  };
   return (
     <>
       <Navbar />
@@ -34,6 +42,7 @@ const MyReservation = () => {
         )}
         <ReservationList
           reservations={reservationsList}
+          onRemoveReservation={handleRemoveReservation}
         />
         <ToastContainer />
       </div>

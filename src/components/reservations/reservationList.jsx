@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ReservationList = ({ reservations }) => (
+const ReservationList = ({ reservations, onRemoveReservation }) => (
   <>
     <div className="m-3">
       {reservations && reservations.length > 0 ? (
@@ -44,8 +44,9 @@ const ReservationList = ({ reservations }) => (
                     <button
                       type="button"
                       className="btn btn-danger"
+                      onClick={() => onRemoveReservation(reservation.id)}
                     >
-                      Remove
+                      Cancel Reservation
                     </button>
                   </div>
                 </div>
@@ -72,6 +73,7 @@ ReservationList.propTypes = {
       carImage: PropTypes.string.isRequired,
     }),
   ),
+  onRemoveReservation: PropTypes.func.isRequired,
 };
 
 ReservationList.defaultProps = {

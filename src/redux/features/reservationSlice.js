@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
 
 import {
   fetchReservedCars,
@@ -57,7 +56,6 @@ const reservationsSlice = createSlice({
         state.reservedCars = state.reservedCars.filter(
           (reservation) => reservation.id !== removedReservationId,
         );
-        toast.success('Reservation successfully removed 🚗');
       })
       .addCase(removeCarReservation.rejected, (state, action) => {
         state.loading = false;
