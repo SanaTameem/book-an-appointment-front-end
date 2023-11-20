@@ -5,6 +5,7 @@ import axios from 'axios';
 export const fetchReservedCars = createAsyncThunk(
   'reservations/fetchReservedCars',
   async () => {
+    console.log('Fetching reserved cars...');
     try {
       const { authToken, id } = JSON.parse(localStorage.getItem('Token'));
 
@@ -32,10 +33,11 @@ export const fetchReservedCars = createAsyncThunk(
           return {
             ...reservation,
             carName: carResponse.data.model,
+            carImage: carResponse.data.image,
           };
         }),
       );
-
+      console.log('Fetched reserved cars:', reservationsWithDetails);
       return reservationsWithDetails;
     } catch (error) {
       throw Error(error);

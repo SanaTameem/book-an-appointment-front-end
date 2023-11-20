@@ -29,7 +29,8 @@ function Navbar() {
           <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} onClick={closeSidebar}>Cars</Link>
           <Link to="/newCar" className={`nav-link ${location.pathname === '/newCar' ? 'active' : ''}`} onClick={closeSidebar}>Add Car</Link>
           <Link to="/cars/delete" className={`nav-link ${location.pathname === '/cars/delete' ? 'active' : ''}`} onClick={closeSidebar}>Delete Car</Link>
-          <Link to="/reservations" className={`nav-link ${location.pathname === '/reservations' ? 'active' : ''}`} onClick={closeSidebar}>Reservations</Link>
+          <Link to="/reservationsList" className={`nav-link ${location.pathname === '/reservationsList' ? 'active' : ''}`} onClick={closeSidebar}>My Reservations</Link>
+          <Link to="/reservations/:carId" className={`nav-link ${location.pathname === '/reservations/:carIds' ? 'active' : ''}`} onClick={closeSidebar}>Reservations</Link>
         </div>
         <div className="license-container">
           <p className="license">&copy; 2023 Test Drive Zone</p>

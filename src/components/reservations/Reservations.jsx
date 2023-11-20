@@ -58,7 +58,7 @@ const Reservations = () => {
       await dispatch(createCarReservation(formData));
       toast.success('Reservation created successfully!');
       dispatchData({ type: 'RESET_FORM' });
-      navigate('/reservations');
+      navigate('/reservationsList');
     } catch (error) {
       toast.error('Error creating reservation. Please try again.');
     }

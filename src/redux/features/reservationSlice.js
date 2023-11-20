@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 import {
   fetchReservedCars,
   createCarReservation,
   removeCarReservation,
 } from './reservationAction';
-// Reducer
+
 const initialState = {
   reservedCars: [],
   createdReserve: {},
@@ -24,7 +24,7 @@ const reservationsSlice = createSlice({
     builder
       .addCase(createCarReservation.pending, (state) => {
         state.loading = true;
-        state.showError = null;
+        state.showError = null; // Reset error when starting an asynchronous operation
       })
       .addCase(createCarReservation.fulfilled, (state, action) => {
         state.loading = false;
@@ -36,7 +36,7 @@ const reservationsSlice = createSlice({
       })
       .addCase(fetchReservedCars.pending, (state) => {
         state.loading = true;
-        state.showError = null;
+        state.showError = null; // Reset error when starting an asynchronous operation
       })
       .addCase(fetchReservedCars.fulfilled, (state, action) => {
         state.loading = false;
@@ -52,6 +52,7 @@ const reservationsSlice = createSlice({
       })
       .addCase(removeCarReservation.fulfilled, (state, action) => {
         state.loading = false;
+        // Assuming the response includes the removed reservation ID
         const removedReservationId = action.payload.id;
         state.reservedCars = state.reservedCars.filter(
           (reservation) => reservation.id !== removedReservationId,
