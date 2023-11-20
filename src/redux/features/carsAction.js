@@ -1,8 +1,8 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import toast from "react-hot-toast";
-import axios from "axios";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
-export const fetchCars = createAsyncThunk("cars/fetchCars", async (userId) => {
+export const fetchCars = createAsyncThunk('cars/fetchCars', async (userId) => {
   const url = `http://127.0.0.1:3000/api/v1/users/${userId}/cars`;
   try {
     const response = await axios.get(url);
@@ -13,7 +13,7 @@ export const fetchCars = createAsyncThunk("cars/fetchCars", async (userId) => {
 });
 
 export const fetchCarById = createAsyncThunk(
-  "cars/fetchCarById",
+  'cars/fetchCarById',
   async (data) => {
     const url = `http://127.0.0.1:3000/api/v1/users/${data.userId}/cars/${data.carId}`;
     try {
@@ -22,16 +22,16 @@ export const fetchCarById = createAsyncThunk(
     } catch (error) {
       throw Error(error);
     }
-  }
+  },
 );
 
-export const addNewCars = createAsyncThunk("cars/addNewCars", async (data) => {
+export const addNewCars = createAsyncThunk('cars/addNewCars', async (data) => {
   const { authToken } = data.id;
   try {
     const config = {
       headers: {
         authorization: authToken,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     };
     const baseUrl = `http://127.0.0.1:3000/api/v1/users/${data.id}/cars`;
@@ -41,18 +41,18 @@ export const addNewCars = createAsyncThunk("cars/addNewCars", async (data) => {
       JSON.stringify({
         car: data.car,
       }),
-      config
+      config,
     );
     toast.success(`Car Successfully ${response.statusText} `);
     return response.data;
   } catch (error) {
-    toast.error("Opps failed to create Car");
+    toast.error('Opps failed to create Car');
     throw Error(error);
   }
 });
 
 export const deleteCar = createAsyncThunk(
-  "cars/deleteCar",
+  'cars/deleteCar',
   async (data, thunkAPI) => {
     const { userId, carId, authToken } = data;
     try {
@@ -65,11 +65,11 @@ export const deleteCar = createAsyncThunk(
 
       const response = await axios.delete(url, config);
       thunkAPI.dispatch(fetchCars());
-      toast.success("Car Successfully deleted");
-      return { carId, success: response.statusText === "OK" };
+      toast.success('Car Successfully deleted');
+      return { carId, success: response.statusText === 'OK' };
     } catch (error) {
-      toast.error("Failed to delete Car");
+      toast.error('Failed to delete Car');
       throw Error(error);
     }
-  }
+  },
 );
