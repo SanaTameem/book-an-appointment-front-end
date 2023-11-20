@@ -43,7 +43,7 @@ const MainPage = () => {
   return (
     <>
       <Navbar />
-      <div style={{ width: '100%' }} className="mainpage-container">
+      <div className="main-page-container">
         <div>
           <div className="d-flex justify-content-center align-items-center flex-column mb-2 mt-5">
             <h1>Private Cars</h1>

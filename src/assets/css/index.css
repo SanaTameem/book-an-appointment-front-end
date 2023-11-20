@@ -226,7 +226,7 @@ button {
 }
 
 .btn-color {
-  background: #1a237e;
+  background: #87de15;
 }
 
 .text-color {
@@ -448,6 +448,10 @@ button {
   transition: 0.4s;
 }
 
+.add-btn {
+  margin-top: 0 !important;
+}
+
 /* Details page started */
 
 .details-page {
@@ -503,6 +507,11 @@ button {
   font-size: 18px;
 }
 
+.delete-item p {
+  margin: 0;
+  font-size: 18px;
+}
+
 .car-amount-container p:nth-child(odd) {
   background-color: rgb(196, 196, 196);
 }
@@ -525,10 +534,63 @@ button {
   cursor: pointer;
 }
 
+/* Delete page styling */
+.delete-car-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 20px;
+  height: 100vh;
+  overflow: scroll;
+  align-items: center;
+}
+
+.delete-item {
+  border-radius: 10px;
+  height: 360px;
+  box-shadow: 2px 2px 8px #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.delete-btn {
+  margin: 0;
+  padding: 5px;
+  width: 50%;
+  font-size: 20px;
+  font-weight: 800;
+  background: #87de15;
+  border: none;
+  box-shadow: 2px 2px 8px #000;
+}
+
+.delete-item-img {
+  height: 40%;
+  width: 70%;
+}
+
+.delete-title {
+  font-size: 35px;
+}
+
+.delete-details-container {
+  height: 25%;
+  text-align: center;
+}
+
+.delete-car-name {
+  font-size: 25px !important;
+  font-weight: 900;
+}
+
 @media only screen and (max-width: 767px) {
   #root {
     display: flex;
     flex-direction: column;
+    justify-content: start;
   }
 
   .side-bar {
@@ -595,6 +657,17 @@ button {
   .car-name,
   .car-model {
     text-align: center;
+  }
+
+  .details-img {
+    height: 285px;
+  }
+
+  /* delete mobile styling */
+  .delete-car-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 45px;
   }
 }
 
