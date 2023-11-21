@@ -67,17 +67,17 @@ const CarReservation = () => {
     <>
       <Navbar />
       <div className="reservation-page-container">
-        <form onSubmit={handleSubmit}>
-          <div className="card m-4">
+        <form onSubmit={handleSubmit} className="btn-reserve-form">
+          <div className="card m-4 btn-reserve-div">
             <div className="card-header header-title">
               <div className="col-12 d-flex justify-content-center">
                 <h3>Reserve Cars Now</h3>
               </div>
             </div>
-            <div className="card-body">
-              <div className="row d-flex flex-column flex-md-row gap-0 w-100 py-1">
-                <div className="col">
-                  <div className="col col-md-8">
+            <div className="card-body form-body-main-div">
+              <div className="row d-flex flex-column flex-md-row gap-0 w-100 py-1 form-body-nested-div">
+                <div className="col form-body-nested-div-2">
+                  <div className="col col-md-8 reserve-input-div">
                     <label htmlFor="username" className="form-label">
                       Username
                     </label>
@@ -89,7 +89,7 @@ const CarReservation = () => {
                       onChange={(e) => dispatchData({ type: 'SET_FIELD', field: 'username', value: e.target.value })}
                     />
                   </div>
-                  <div className="col col-md-8">
+                  <div className="col col-md-8 reserve-input-div">
                     <label htmlFor="carName" className="form-label">
                       Car Name:
                     </label>
@@ -110,7 +110,7 @@ const CarReservation = () => {
                       ))}
                     </select>
                   </div>
-                  <div className="col col-md-8">
+                  <div className="col col-md-8 reserve-input-div">
                     <label htmlFor="startLocation" className="form-label">
                       From City
                     </label>
@@ -123,8 +123,8 @@ const CarReservation = () => {
                     />
                   </div>
                 </div>
-                <div className="col">
-                  <div className="col col-md-8">
+                <div className="col form-body-nested-div-2">
+                  <div className="col col-md-8 reserve-input-div">
                     <label htmlFor="destination" className="form-label">
                       To Destination
                     </label>
@@ -136,7 +136,7 @@ const CarReservation = () => {
                       id="destination"
                     />
                   </div>
-                  <div className="col col-md-8">
+                  <div className="col col-md-8 reserve-input-div">
                     <label htmlFor="reserved-date" className="form-label">
                       Reserved Date select
                     </label>

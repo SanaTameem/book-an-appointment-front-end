@@ -5,12 +5,12 @@ const ReservationList = ({ reservations, onRemoveReservation }) => (
   <>
     <div className="m-3">
       {reservations && reservations.length > 0 ? (
-        <div className="row row-cols-1 row-cols-md-3 g-4">
+        <div className="row row-cols-1 row-cols-md-3 g-4 reserve-list-body-div">
           {reservations.map((reservation) => (
-            <div key={reservation.id} className="col">
+            <div key={reservation.id} className="col reserve-item">
               <div className="card h-100">
                 <div className="card-body d-flex flex-column align-items-center">
-                  <h5 className="card-title mb-3">
+                  <h5 className="card-title mb-3 reservation-img-container">
                     <img
                       src={reservation.carImage}
                       alt="Car"
@@ -20,7 +20,7 @@ const ReservationList = ({ reservations, onRemoveReservation }) => (
                   </h5>
                   <p className="card-text">
                     <strong>Reserved Date:</strong>
-                    {' '}
+                    <br />
                     {reservation.reserved_date}
                   </p>
                   <div className="city-container d-flex flex-column align-items-center ">
@@ -29,7 +29,7 @@ const ReservationList = ({ reservations, onRemoveReservation }) => (
                       {' '}
                       {reservation.start_city}
                     </div>
-                    <div className="arrow">&#124;</div>
+                    {/* <div className="arrow">&#124;</div> */}
                     <div className="arrow">&#8595;</div>
                     {' '}
                     {/* Down arrow */}
@@ -43,7 +43,7 @@ const ReservationList = ({ reservations, onRemoveReservation }) => (
                   <div className="mt-auto">
                     <button
                       type="button"
-                      className="btn btn-danger"
+                      className="btn btn-danger cancel-btn"
                       onClick={() => onRemoveReservation(reservation.id)}
                     >
                       Cancel Reservation

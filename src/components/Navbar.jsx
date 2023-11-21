@@ -59,7 +59,7 @@ function Navbar() {
             disabled={!authToken}
             onClick={handleLogout}
             type="button"
-            className="list-group-item list-group-item-action "
+            className="list-group-item list-group-item-action logout-btn"
           >
             Log Out
           </button>

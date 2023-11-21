@@ -85,7 +85,7 @@ const AddCarsForm = () => {
     <>
       <Navbar />
       <div className="Add-car-container container mt-3">
-        <div className="card">
+        <div className="card add-car-card-container">
           <div className="card-header header-title">
             <div className="col-12 d-flex justify-content-center">
               <h3>ADD CARS</h3>
@@ -93,8 +93,8 @@ const AddCarsForm = () => {
           </div>
           <div className="card-body">
             <form>
-              <div className="mb-3 row">
-                <div className="col-sm-12 col-md-6 mb-3">
+              <div className="mb-3 row add-form-body-div">
+                <div className="col-sm-12 col-md-6 mb-3 add-form-input-div">
                   <input
                     className="form-control"
                     type="text"
@@ -105,7 +105,7 @@ const AddCarsForm = () => {
                     onChange={(e) => fieldHandlers('name', e.target.value)}
                   />
                 </div>
-                <div className="col-sm-12 col-md-6 mb-3">
+                <div className="col-sm-12 col-md-6 mb-3 add-form-input-div">
                   <input
                     className="form-control"
                     type="text"
@@ -116,7 +116,7 @@ const AddCarsForm = () => {
                     onChange={(e) => fieldHandlers('image', e.target.value)}
                   />
                 </div>
-                <div className="col-sm-12 col-md-6 mb-3">
+                <div className="col-sm-12 col-md-6 mb-3 add-form-input-div">
                   <input
                     className="form-control"
                     type="text"
@@ -127,7 +127,7 @@ const AddCarsForm = () => {
                     onChange={(e) => fieldHandlers('model', e.target.value)}
                   />
                 </div>
-                <div className="col-sm-12 col-md-6 mb-3">
+                <div className="col-sm-12 col-md-6 mb-3 add-form-input-div">
                   <input
                     className="form-control"
                     type="text"
@@ -138,7 +138,7 @@ const AddCarsForm = () => {
                     onChange={(e) => fieldHandlers('financeFee', e.target.value)}
                   />
                 </div>
-                <div className="col-sm-12 col-md-6 mb-3">
+                <div className="col-sm-12 col-md-6 mb-3 add-form-input-div">
                   <input
                     className="form-control"
                     type="text"
@@ -149,7 +149,7 @@ const AddCarsForm = () => {
                     onChange={(e) => fieldHandlers('totalAmount', e.target.value)}
                   />
                 </div>
-                <div className="col-sm-12 col-md-6 mb-3">
+                <div className="col-sm-12 col-md-6 mb-3 add-form-input-div">
                   <input
                     className="form-control"
                     type="text"

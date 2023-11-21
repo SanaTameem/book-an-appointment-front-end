@@ -125,7 +125,7 @@ const Register = () => {
   return (
     <>
       {success ? (
-        <section>
+        <section className="register-title-container">
           <h1>Success!</h1>
           <span className="line">
             <Link to="/login">Sign In</Link>
@@ -139,8 +139,8 @@ const Register = () => {
           >
             {errMsg}
           </p>
-          <h3>Register</h3>
-          <form onSubmit={handleSubmit}>
+          <h3 className="register-title">Register</h3>
+          <form onSubmit={handleSubmit} className="register-form">
             <label htmlFor="username">
               Username:
               <FontAwesomeIcon
@@ -299,10 +299,10 @@ const Register = () => {
               Sign Up
             </button>
           </form>
-          <p>
+          <p className="sign-up-p">
             Already registered?
             <br />
-            <Link to="/login" className="text-light">
+            <Link to="/login" className="text-light login-link">
               <span className="text-login"> Sign In</span>
             </Link>
           </p>
