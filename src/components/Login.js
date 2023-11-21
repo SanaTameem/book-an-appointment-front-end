@@ -59,7 +59,6 @@ const Login = () => {
         'Token',
         JSON.stringify({ authToken, username, id }),
       );
-      // clean the input field
       setEmail('');
       setPwd('');
       navigate(from, { replace: true });

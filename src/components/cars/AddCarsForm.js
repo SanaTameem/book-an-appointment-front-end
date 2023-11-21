@@ -5,7 +5,6 @@ import { addNewCars, fetchCars } from '../../redux/features/carsAction';
 import Navbar from '../Navbar';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Define the initial state for the reducer
 const initialState = {
   name: '',
   image: '',
@@ -17,7 +16,6 @@ const initialState = {
   pending: 'Add Cars',
 };
 
-// Define the reducer function
 const reducer = (state, action) => {
   switch (action.type) {
     case 'SET_FIELD':
@@ -34,9 +32,7 @@ const reducer = (state, action) => {
 const AddCarsForm = () => {
   const dispatch = useDispatch();
   const { id } = JSON.parse(localStorage.getItem('Token')) || {};
-  // Use useReducer hook to manage state
   const [state, localDispatch] = useReducer(reducer, initialState);
-  // Destructure values from the state
   const {
     name,
     image,
@@ -70,7 +66,7 @@ const AddCarsForm = () => {
     dispatch(addNewCars({ car: carsDetail, id }))
       .then(() => {
         toast.success('Car added successfully!');
-        localDispatch({ type: 'RESET_FORM' }); // Reset form data
+        localDispatch({ type: 'RESET_FORM' }); 
       })
       .catch((error) => {
         toast.error(`Error adding car: ${error.message}`);

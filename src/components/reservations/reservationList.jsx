@@ -29,10 +29,8 @@ const ReservationList = ({ reservations, onRemoveReservation }) => (
                       {' '}
                       {reservation.start_city}
                     </div>
-                    {/* <div className="arrow">&#124;</div> */}
                     <div className="arrow">&#8595;</div>
                     {' '}
-                    {/* Down arrow */}
                     <div className="city">
                       <strong>Destination City:</strong>
                       {' '}

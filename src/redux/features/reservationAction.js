@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 import axios from 'axios';
-// Actions
+
 export const fetchReservedCars = createAsyncThunk(
   'reservations/fetchReservedCars',
   async () => {

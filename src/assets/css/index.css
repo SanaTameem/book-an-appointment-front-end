@@ -1,5 +1,3 @@
-/* Index.css styles */
-
 body {
   margin: 0;
   font-family:
@@ -50,7 +48,6 @@ html {
 }
 
 section {
-  /* margin-top: 70px; */
   width: 100%;
   max-width: 480px;
   min-height: 400px;
@@ -75,15 +72,8 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-
-  /* flex-grow: 1; */
   padding-bottom: 1rem;
 }
-
-/* a,
-a:visited {
-  color: #fff;
-} */
 
 input[type='text'],
 input[type='email'],
@@ -336,8 +326,6 @@ button {
   }
 }
 
-/* App.css styles */
-
 .App {
   text-align: center;
 }
@@ -386,8 +374,6 @@ button {
   height: 100vh;
 }
 
-/* Navbar styles */
-
 .sidebar-logo-container {
   width: 150px;
   height: 150px;
@@ -416,14 +402,6 @@ button {
   justify-content: center;
   width: 100%;
   height: 100vh;
-
-  /* background-image: url('../background-2.webp'); */
-
-  /* background-attachment: fixed; */
-
-  /* background-size: 100% 100%; */
-
-  /* background-repeat: no-repeat; */
 }
 
 .delete-car-container,
@@ -452,9 +430,6 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* height: 100vh;
-  overflow: scroll; */
 }
 
 .nav-reserve-div,
@@ -522,11 +497,8 @@ button {
 }
 
 .m-4 {
-  /* margin-bottom: 0 !important; */
   margin: 0.5rem 1rem !important;
 }
-
-/* Details page started */
 
 .details-page {
   display: flex;
@@ -612,7 +584,6 @@ button {
   height: 25%;
 }
 
-/* Delete page styling */
 .delete-car-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -772,7 +743,6 @@ button {
     position: fixed;
   }
 
-  /* Detials mobile started */
   .details-page {
     display: flex;
     flex-direction: column;
@@ -801,7 +771,6 @@ button {
     height: 285px;
   }
 
-  /* delete mobile styling */
   .delete-car-container {
     display: grid;
     grid-template-columns: 1fr;
