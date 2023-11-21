@@ -1,11 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import './App.css';
 import Login from './components/Login';
 import Register from './components/Register';
 import RequireAuth from './components/RequireAuth';
 import AddCarsForm from './components/cars/AddCarsForm';
-// import Navbar from './components/Navbar';
 import MainPage from './components/cars/MainPage';
 import DeleteCar from './components/cars/DeleteCar';
 import Reservations from './components/reservations/Reservations';

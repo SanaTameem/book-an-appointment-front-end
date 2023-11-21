@@ -66,7 +66,7 @@ const AddCarsForm = () => {
     dispatch(addNewCars({ car: carsDetail, id }))
       .then(() => {
         toast.success('Car added successfully!');
-        localDispatch({ type: 'RESET_FORM' }); 
+        localDispatch({ type: 'RESET_FORM' });
       })
       .catch((error) => {
         toast.error(`Error adding car: ${error.message}`);
