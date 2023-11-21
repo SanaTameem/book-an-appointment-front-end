@@ -5,7 +5,6 @@ import { addNewCars, fetchCars } from '../../redux/features/carsAction';
 import Navbar from '../Navbar';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Define the initial state for the reducer
 const initialState = {
   name: '',
   image: '',
@@ -17,7 +16,6 @@ const initialState = {
   pending: 'Add Cars',
 };
 
-// Define the reducer function
 const reducer = (state, action) => {
   switch (action.type) {
     case 'SET_FIELD':
@@ -34,9 +32,7 @@ const reducer = (state, action) => {
 const AddCarsForm = () => {
   const dispatch = useDispatch();
   const { id } = JSON.parse(localStorage.getItem('Token')) || {};
-  // Use useReducer hook to manage state
   const [state, localDispatch] = useReducer(reducer, initialState);
-  // Destructure values from the state
   const {
     name,
     image,
@@ -70,7 +66,7 @@ const AddCarsForm = () => {
     dispatch(addNewCars({ car: carsDetail, id }))
       .then(() => {
         toast.success('Car added successfully!');
-        localDispatch({ type: 'RESET_FORM' }); // Reset form data
+        localDispatch({ type: 'RESET_FORM' });
       })
       .catch((error) => {
         toast.error(`Error adding car: ${error.message}`);
@@ -85,7 +81,7 @@ const AddCarsForm = () => {
     <>
       <Navbar />
       <div className="Add-car-container container mt-3">
-        <div className="card">
+        <div className="card add-car-card-container">
           <div className="card-header header-title">
             <div className="col-12 d-flex justify-content-center">
               <h3>ADD CARS</h3>
@@ -93,8 +89,8 @@ const AddCarsForm = () => {
           </div>
           <div className="card-body">
             <form>
-              <div className="mb-3 row">
-                <div className="col-sm-12 col-md-6 mb-3">
+              <div className="mb-3 row add-form-body-div">
+                <div className="col-sm-12 col-md-6 mb-3 add-form-input-div">
                   <input
                     className="form-control"
                     type="text"
@@ -105,7 +101,7 @@ const AddCarsForm = () => {
                     onChange={(e) => fieldHandlers('name', e.target.value)}
                   />
                 </div>
-                <div className="col-sm-12 col-md-6 mb-3">
+                <div className="col-sm-12 col-md-6 mb-3 add-form-input-div">
                   <input
                     className="form-control"
                     type="text"
@@ -116,7 +112,7 @@ const AddCarsForm = () => {
                     onChange={(e) => fieldHandlers('image', e.target.value)}
                   />
                 </div>
-                <div className="col-sm-12 col-md-6 mb-3">
+                <div className="col-sm-12 col-md-6 mb-3 add-form-input-div">
                   <input
                     className="form-control"
                     type="text"
@@ -127,7 +123,7 @@ const AddCarsForm = () => {
                     onChange={(e) => fieldHandlers('model', e.target.value)}
                   />
                 </div>
-                <div className="col-sm-12 col-md-6 mb-3">
+                <div className="col-sm-12 col-md-6 mb-3 add-form-input-div">
                   <input
                     className="form-control"
                     type="text"
@@ -138,7 +134,7 @@ const AddCarsForm = () => {
                     onChange={(e) => fieldHandlers('financeFee', e.target.value)}
                   />
                 </div>
-                <div className="col-sm-12 col-md-6 mb-3">
+                <div className="col-sm-12 col-md-6 mb-3 add-form-input-div">
                   <input
                     className="form-control"
                     type="text"
@@ -149,7 +145,7 @@ const AddCarsForm = () => {
                     onChange={(e) => fieldHandlers('totalAmount', e.target.value)}
                   />
                 </div>
-                <div className="col-sm-12 col-md-6 mb-3">
+                <div className="col-sm-12 col-md-6 mb-3 add-form-input-div">
                   <input
                     className="form-control"
                     type="text"

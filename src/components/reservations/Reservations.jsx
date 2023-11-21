@@ -69,16 +69,16 @@ const Reservations = () => {
       <Navbar />
       <div className="reservation-page-container">
         {isLoading ? (<SkeletonLoading />) : (
-          <form onSubmit={handleSubmit}>
-            <div className="card m-4">
+          <form onSubmit={handleSubmit} className="nav-reserve-form">
+            <div className="card m-4 nav-reserve-div">
               <div className="card-header header-title">
                 <div className="col-12 d-flex justify-content-center">
                   <h3>Reserve Cars Now</h3>
                 </div>
               </div>
-              <div className="card-body">
-                <div className="row d-flex flex-column flex-md-row gap-0 w-100 py-1">
-                  <div className="col">
+              <div className="card-body form-body-main-div">
+                <div className="row d-flex flex-column flex-md-row gap-0 w-100 py-1 form-body-nested-div">
+                  <div className="col form-body-nested-div-2">
                     <div className="col col-md-8">
                       <label htmlFor="username" className="form-label">
                         Username
@@ -130,7 +130,7 @@ const Reservations = () => {
                       />
                     </div>
                   </div>
-                  <div className="col">
+                  <div className="col form-body-nested-div-2">
                     <div className="col col-md-8">
                       <label htmlFor="destination" className="form-label">
                         To Destination

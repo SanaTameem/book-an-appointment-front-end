@@ -59,7 +59,6 @@ const Login = () => {
         'Token',
         JSON.stringify({ authToken, username, id }),
       );
-      // clean the input field
       setEmail('');
       setPwd('');
       navigate(from, { replace: true });
@@ -111,7 +110,7 @@ const Login = () => {
           Sign In
         </button>
       </form>
-      <p>
+      <p className="sign-in-p">
         Need an Account?
         <br />
         <Link to="/register" className="text-light">

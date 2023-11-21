@@ -76,7 +76,6 @@ const LogIn = () => {
             name="email"
             value={data.email}
             onChange={handleInputChange}
-            // required
           />
         </div>
         <div>
@@ -86,7 +85,6 @@ const LogIn = () => {
             name="password"
             value={data.password}
             onChange={handleInputChange}
-            // required
           />
         </div>
         {error && <p className="error">{error}</p>}

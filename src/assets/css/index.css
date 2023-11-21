@@ -1,5 +1,3 @@
-/* Index.css styles */
-
 body {
   margin: 0;
   font-family:
@@ -37,6 +35,7 @@ code {
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 * {
+  font-family: 'Nunito', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -49,9 +48,8 @@ html {
 }
 
 section {
-  margin-top: 70px;
   width: 100%;
-  max-width: 420px;
+  max-width: 480px;
   min-height: 400px;
   display: flex;
   flex-direction: column;
@@ -59,23 +57,23 @@ section {
   padding: 0 1rem;
 }
 
+.header {
+  text-align: center;
+}
+
 .login-register-style {
-  background: rgba(0, 86, 143, 0.5);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.5);
+  color: #000;
+  display: flex;
+  justify-content: center;
 }
 
 form {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  flex-grow: 1;
   padding-bottom: 1rem;
 }
-
-/* a,
-a:visited {
-  color: #fff;
-} */
 
 input[type='text'],
 input[type='email'],
@@ -106,6 +104,15 @@ button {
   padding: 0.25rem;
   position: relative;
   bottom: -10px;
+}
+
+.register-form {
+  color: #000;
+}
+
+.register-title {
+  color: #000;
+  text-align: center;
 }
 
 .instructions > svg {
@@ -178,6 +185,15 @@ button {
   padding-left: 90px;
 }
 
+.sign-up-p,
+.sign-in-p {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+}
+
 @media (max-width: 768px) {
   section {
     margin-top: 20px;
@@ -222,7 +238,7 @@ button {
 }
 
 .border-color {
-  border: 1px solid #1a237e;
+  border: 1px solid #000;
 }
 
 .btn-color {
@@ -230,11 +246,11 @@ button {
 }
 
 .text-color {
-  color: #1a237e;
+  color: #000;
 }
 
 .text-login {
-  color: #d8d8df;
+  color: #000;
 }
 
 .skeleton {
@@ -310,8 +326,6 @@ button {
   }
 }
 
-/* App.css styles */
-
 .App {
   text-align: center;
 }
@@ -360,8 +374,6 @@ button {
   height: 100vh;
 }
 
-/* Navbar styles */
-
 .sidebar-logo-container {
   width: 150px;
   height: 150px;
@@ -379,29 +391,57 @@ button {
   align-items: center;
   background-color: #fff;
   height: 100vh;
-  padding-top: 40px;
+  padding-top: 20px;
   gap: 50px;
   box-shadow: 2px 2px 8px gray;
+  min-width: 250px;
 }
 
 #root {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   height: 100vh;
-}
-
-.Add-car-container {
-  width: 60%;
-  z-index: 0;
 }
 
 .delete-car-container,
 .main-page-container,
 .reservation-page-container,
 .login-page-container,
+.reservation-list-page,
 .details-page {
   width: 80%;
+}
+
+.reservation-list-page {
+  height: 100vh;
+  overflow: scroll;
+}
+
+.Add-car-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  z-index: 0;
+}
+
+.reservation-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-reserve-div,
+.btn-reserve-div {
+  width: 80%;
+}
+
+.nav-reserve-form,
+.btn-reserve-form {
+  width: 90%;
+  justify-content: center;
+  align-items: center;
 }
 
 .sidebar-links-container {
@@ -414,8 +454,8 @@ button {
 }
 
 .nav-link {
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 900;
   text-decoration: none;
   color: #000;
   cursor: pointer;
@@ -452,7 +492,13 @@ button {
   margin-top: 0 !important;
 }
 
-/* Details page started */
+.mb-3 {
+  margin-bottom: 0.5rem !important;
+}
+
+.m-4 {
+  margin: 0.5rem 1rem !important;
+}
 
 .details-page {
   display: flex;
@@ -534,7 +580,10 @@ button {
   cursor: pointer;
 }
 
-/* Delete page styling */
+.reservation-img-container {
+  height: 25%;
+}
+
 .delete-car-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -556,15 +605,34 @@ button {
   gap: 20px;
 }
 
+.cancel-btn {
+  background-color: #fff;
+  color: #dc3545;
+  box-shadow: 2px 2px 8px #000;
+  font-weight: 900;
+}
+
 .delete-btn {
   margin: 0;
   padding: 5px;
   width: 50%;
   font-size: 20px;
-  font-weight: 800;
-  background: #87de15;
+  font-weight: 900;
+  background-color: #fff;
+  color: #dc3545;
   border: none;
   box-shadow: 2px 2px 8px #000;
+}
+
+.logout-btn {
+  font-size: 18px;
+  font-weight: 900;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  padding: 8px;
+  width: 100%;
+  text-transform: uppercase;
 }
 
 .delete-item-img {
@@ -591,6 +659,7 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: start;
+    align-items: center;
   }
 
   .side-bar {
@@ -613,6 +682,25 @@ button {
     width: 100%;
   }
 
+  .btn-reserve-form,
+  .nav-reserve-form,
+  .add-car-card-container {
+    margin-top: 55px;
+  }
+
+  .reserve-input-div {
+    width: 100%;
+  }
+
+  .reservation-list-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    width: 100%;
+    margin-top: 55px;
+  }
+
   .mob-nav {
     display: flex;
     width: 100%;
@@ -620,6 +708,27 @@ button {
     background-color: #fff;
     padding-right: 16px;
     z-index: 2;
+  }
+
+  .form-body-main-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-body-nested-div {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column !important;
+  }
+
+  .form-body-nested-div-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .license-container {
@@ -634,7 +743,6 @@ button {
     position: fixed;
   }
 
-  /* Detials mobile started */
   .details-page {
     display: flex;
     flex-direction: column;
@@ -663,7 +771,6 @@ button {
     height: 285px;
   }
 
-  /* delete mobile styling */
   .delete-car-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -689,4 +796,117 @@ button {
   background-color: #87de15;
   box-shadow: 2px 2px 8px gray;
   border: none;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .login-register-style {
+    margin-top: 100px;
+  }
+
+  .humburger {
+    color: #87de15;
+  }
+
+  .side-bar {
+    display: none;
+  }
+
+  .side-bar.visible {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .mob-nav {
+    display: flex;
+    align-self: flex-end;
+    font-size: 55px;
+    padding: 25px;
+    z-index: 2;
+  }
+
+  #root {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .main-page-container {
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  .details-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-container {
+    width: 90%;
+  }
+
+  .details-container {
+    width: 90%;
+  }
+
+  .nav-reserve-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column !important;
+  }
+
+  .form-body-main-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-body-nested-div {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column !important;
+  }
+
+  .form-body-nested-div-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .add-form-body-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .add-form-input-div {
+    width: 100%;
+  }
+
+  .delete-car-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: auto;
+  }
+
+  .reserve-list-body-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .reserve-item {
+    width: 100%;
+  }
 }

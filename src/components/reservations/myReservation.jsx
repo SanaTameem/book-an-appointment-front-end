@@ -1,4 +1,3 @@
-// MyReservation component
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
@@ -29,7 +28,7 @@ const MyReservation = () => {
   return (
     <>
       <Navbar />
-      <div className="reservation-page-container">
+      <div className="reservation-list-page">
         <div className="col-12 mt-3 d-flex justify-content-center">
           <h3>Reserved CARS</h3>
         </div>
