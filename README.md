@@ -103,6 +103,7 @@ Install this project with:
 
   - cd my-folder
   - npm install
+  - npm start
 
 <!-- AUTHORS -->
 
@@ -170,6 +171,6 @@ If you like this project give us a ⭐️
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT]() licensed.
+This project is [MIT](https://github.com/SanaTameem/book-an-appointment-front-end/blob/dev/MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

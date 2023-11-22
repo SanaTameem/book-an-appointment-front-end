@@ -8,7 +8,7 @@ import SkeletonLoading from './SkeletonLoading';
 import { fetchCarById } from '../../redux/features/carsAction';
 import { reserveCar } from '../../redux/features/carsSlice';
 
-function CarDetails() {
+const CarDetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -70,6 +70,6 @@ function CarDetails() {
       )}
     </>
   );
-}
+};
 
 export default CarDetails;

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteCar, fetchCars } from '../../redux/features/carsAction';
 import Navbar from '../Navbar';
 
-function DeleteCar() {
+const DeleteCar = () => {
   const dispatch = useDispatch();
   const carData = useSelector((state) => state.cars.cars);
   useEffect(() => {
@@ -32,6 +32,6 @@ function DeleteCar() {
       </div>
     </>
   );
-}
+};
 
 export default DeleteCar;

@@ -1,6 +1,3 @@
-MIT file for both front-end and backend : 👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻
-
-
 Copyright 2023, [Sana Tameem, Hafiz Massam Tabriz Khan, Melkamu Almawu Ayen]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software application and associated documentation files (the "Test Drive Zone"), to deal in the Test Drive Zone without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Test Drive Zone, and to permit persons to whom the Test Drive Zone is furnished to do so, subject to the following conditions:

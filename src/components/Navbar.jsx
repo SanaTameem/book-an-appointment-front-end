@@ -7,7 +7,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import useAuth from '../hooks/useAuth';
 import logo from '../assets/logo.png';
 
-function Navbar() {
+const Navbar = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const location = useLocation();
   const { setAuth } = useAuth();
@@ -71,6 +71,6 @@ function Navbar() {
       </div>
     </>
   );
-}
+};
 
 export default Navbar;
