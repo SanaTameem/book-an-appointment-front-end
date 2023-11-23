@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 
 export const fetchCars = createAsyncThunk('cars/fetchCars', async (userId) => {
-  const url = `http://127.0.0.1:3000/api/v1/users/${userId}/cars`;
+  const url = `https://rent-a-car-96dr.onrender.com/api/v1/users/${userId}/cars`;
   try {
     const response = await axios.get(url);
     return response.data;
@@ -15,7 +15,7 @@ export const fetchCars = createAsyncThunk('cars/fetchCars', async (userId) => {
 export const fetchCarById = createAsyncThunk(
   'cars/fetchCarById',
   async (data) => {
-    const url = `http://127.0.0.1:3000/api/v1/users/${data.userId}/cars/${data.carId}`;
+    const url = `https://rent-a-car-96dr.onrender.com/api/v1/users/${data.userId}/cars/${data.carId}`;
     try {
       const response = await axios.get(url);
       return response.data;
@@ -34,7 +34,7 @@ export const addNewCars = createAsyncThunk('cars/addNewCars', async (data) => {
         'Content-Type': 'application/json',
       },
     };
-    const baseUrl = `http://127.0.0.1:3000/api/v1/users/${data.id}/cars`;
+    const baseUrl = `https://rent-a-car-96dr.onrender.com/api/v1/users/${data.id}/cars`;
 
     const response = await axios.post(
       baseUrl,
@@ -61,7 +61,7 @@ export const deleteCar = createAsyncThunk(
           authorization: authToken,
         },
       };
-      const url = `http://127.0.0.1:3000/api/v1/users/${userId}/cars/${carId}`;
+      const url = `https://rent-a-car-96dr.onrender.com/api/v1/users/${userId}/cars/${carId}`;
 
       const response = await axios.delete(url, config);
       thunkAPI.dispatch(fetchCars());
