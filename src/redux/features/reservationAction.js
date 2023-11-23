@@ -10,7 +10,7 @@ export const fetchReservedCars = createAsyncThunk(
       const { authToken, id } = JSON.parse(localStorage.getItem('Token'));
 
       const response = await axios.get(
-        `http://localhost:3000/api/v1/users/${id}/reservations`,
+        `https://rent-a-car-96dr.onrender.com/api/v1/users/${id}/reservations`,
         {
           headers: {
             Authorization: authToken,
@@ -22,7 +22,7 @@ export const fetchReservedCars = createAsyncThunk(
       const reservationsWithDetails = await Promise.all(
         response.data.map(async (reservation) => {
           const carResponse = await axios.get(
-            `http://localhost:3000/api/v1/users/${id}/cars/${reservation.car_id}`,
+            `https://rent-a-car-96dr.onrender.com/api/v1/users/${id}/cars/${reservation.car_id}`,
             {
               headers: {
                 Authorization: authToken,
@@ -49,7 +49,7 @@ export const createCarReservation = createAsyncThunk(
   'reservations/createCarReservation',
   async (data) => {
     const { id } = JSON.parse(localStorage.getItem('Token'));
-    const url = `http://localhost:3000/api/v1/users/${id}/reservations`;
+    const url = `https://rent-a-car-96dr.onrender.com/api/v1/users/${id}/reservations`;
     try {
       const { authToken } = JSON.parse(localStorage.getItem('Token'));
       const response = await axios.post(url, JSON.stringify(data), {
@@ -74,7 +74,7 @@ export const removeCarReservation = createAsyncThunk(
       const { authToken, id } = JSON.parse(localStorage.getItem('Token'));
 
       const response = await axios.delete(
-        `http://localhost:3000/api/v1/users/${id}/reservations/${reservationId}`,
+        `https://rent-a-car-96dr.onrender.com/api/v1/users/${id}/reservations/${reservationId}`,
         {
           headers: {
             Authorization: authToken,
