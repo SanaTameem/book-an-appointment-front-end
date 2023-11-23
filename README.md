@@ -16,6 +16,7 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
+  - [Kanban Board ](#kanban-board-)
   - [Link to Backend API](#link-to-backend-api)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
@@ -63,7 +64,17 @@ Test Drive Zone allows users to schedule test drive appointments for cars. Users
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://car-rent-swa4.onrender.com/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Kanban Board -->
+
+## Kanban Board <a name="kanban-board"></a>
+
+- [Kanban Board Link](https://github.com/users/SanaTameem/projects/15/views/1)
+- [Screenshot of the initial state of our Kanban board](https://github.com/SanaTameem/book-an-appointment-back-end/issues/12)
+- We are group of three members. You can see the names in the authors section.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
