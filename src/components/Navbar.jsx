@@ -26,7 +26,7 @@ const Navbar = () => {
     localStorage.removeItem('Token');
     if (authToken) {
       try {
-        axios.delete('http://localhost:3000/auth/logout', {
+        axios.delete('https://rent-a-car-96dr.onrender.com/auth/logout', {
           headers: {
             Authorization: authToken,
             'Content-Type': 'application/json',
