@@ -1,0 +1,912 @@
+body {
+  margin: 0;
+  font-family:
+    'Roboto+Slab',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.read-only {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+code {
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Courier New',
+    monospace;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  color: #fff;
+}
+
+section {
+  width: 100%;
+  max-width: 480px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 1rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.login-register-style {
+  background: rgba(255, 255, 255, 0.5);
+  color: #000;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-bottom: 1rem;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+button,
+textarea {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid #1a237e;
+}
+
+label,
+button {
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem;
+}
+
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.register-form {
+  color: #000;
+}
+
+.register-title {
+  color: #000;
+  text-align: center;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.errMsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.line {
+  display: inline-block;
+}
+
+.flexGrow {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.login {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 0;
+}
+
+.page {
+  z-index: -10;
+  height: 100vh;
+}
+
+.style-card {
+  width: 100vw;
+  height: 90vh;
+  margin-left: 300px;
+}
+
+.group-item:nth-child(odd) {
+  background-color: #d0d4fa;
+}
+
+.info-section {
+  padding-left: 90px;
+}
+
+.sign-up-p,
+.sign-in-p {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  section {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 420px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+
+  .skeleton-img {
+    height: 200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .skeleton-img {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .imghight {
+    height: 550px;
+  }
+
+  .skeleton-img {
+    height: 400px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .imghight {
+    height: 650px;
+  }
+
+  .skeleton-img {
+    height: 60vh;
+  }
+}
+
+.border-color {
+  border: 1px solid #000;
+}
+
+.btn-color {
+  background: #87de15;
+}
+
+.text-color {
+  color: #000;
+}
+
+.text-login {
+  color: #000;
+}
+
+.skeleton {
+  opacity: 0.8;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-img {
+  width: 100%;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.125rem;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 2.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.125rem;
+}
+
+.skeleton-icon {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  height: 0.9rem;
+  width: 10%;
+}
+
+.skeleton-button {
+  padding: 0.5rem 2rem;
+}
+
+.skeleton-card-img {
+  width: 300px;
+  height: 9rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.325rem;
+}
+
+.skeleton-card-header {
+  width: 110px;
+  height: 1.1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.125rem;
+}
+
+.skeleton-card-text {
+  width: 300px;
+  height: 0.85rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.125rem;
+}
+
+.skeleton-card {
+  width: 320px;
+  height: 2rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.125rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 13%, 42%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.sidebar-logo-container {
+  width: 150px;
+  height: 150px;
+}
+
+.sidebar-logo {
+  width: 100%;
+}
+
+.side-bar {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: #fff;
+  height: 100vh;
+  padding-top: 20px;
+  gap: 50px;
+  box-shadow: 2px 2px 8px gray;
+  min-width: 250px;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.delete-car-container,
+.main-page-container,
+.reservation-page-container,
+.login-page-container,
+.reservation-list-page,
+.details-page {
+  width: 80%;
+}
+
+.reservation-list-page {
+  height: 100vh;
+  overflow: scroll;
+}
+
+.Add-car-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  z-index: 0;
+}
+
+.reservation-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-reserve-div,
+.btn-reserve-div {
+  width: 80%;
+}
+
+.nav-reserve-form,
+.btn-reserve-form {
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-links-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  padding: 0 10%;
+}
+
+.nav-link {
+  font-size: 18px;
+  font-weight: 900;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  padding: 8px;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.license-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  bottom: 15px;
+  right: -30px;
+  position: fixed;
+}
+
+.license {
+  font-size: 13px;
+  margin: 0;
+}
+
+.mob-nav {
+  display: none;
+}
+
+.active {
+  background-color: #87de15;
+  color: #fff;
+  transition: 0.4s;
+}
+
+.add-btn {
+  margin-top: 0 !important;
+}
+
+.mb-3 {
+  margin-bottom: 0.5rem !important;
+}
+
+.m-4 {
+  margin: 0.5rem 1rem !important;
+}
+
+.details-page {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 50px;
+}
+
+.img-container {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-container {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+}
+
+.details-img {
+  width: 90%;
+  height: 320px;
+  border-radius: 30px;
+  box-shadow: 2px 2px 8px #000;
+}
+
+.car-name {
+  font-size: 35px;
+  padding-right: 15px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.car-model {
+  padding-right: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.car-amount-container p {
+  display: flex;
+  justify-content: space-between;
+  height: 35px;
+  padding: 6px;
+  font-weight: 600;
+  margin: 0;
+  font-size: 18px;
+}
+
+.delete-item p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.car-amount-container p:nth-child(odd) {
+  background-color: rgb(196, 196, 196);
+}
+
+.discount {
+  font-weight: 700;
+}
+
+.reserve-btn {
+  background: #87de15;
+  padding: 12px;
+  width: 75%;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.reservation-img-container {
+  height: 25%;
+}
+
+.delete-car-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 20px;
+  height: 100vh;
+  overflow: scroll;
+  align-items: center;
+}
+
+.delete-item {
+  border-radius: 10px;
+  height: 360px;
+  box-shadow: 2px 2px 8px #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.cancel-btn {
+  background-color: #fff;
+  color: #dc3545;
+  box-shadow: 2px 2px 8px #000;
+  font-weight: 900;
+}
+
+.delete-btn {
+  margin: 0;
+  padding: 5px;
+  width: 50%;
+  font-size: 20px;
+  font-weight: 900;
+  background-color: #fff;
+  color: #dc3545;
+  border: none;
+  box-shadow: 2px 2px 8px #000;
+}
+
+.logout-btn {
+  font-size: 18px;
+  font-weight: 900;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  padding: 8px;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.delete-item-img {
+  height: 40%;
+  width: 70%;
+}
+
+.delete-title {
+  font-size: 35px;
+}
+
+.delete-details-container {
+  height: 25%;
+  text-align: center;
+}
+
+.delete-car-name {
+  font-size: 25px !important;
+  font-weight: 900;
+}
+
+@media only screen and (max-width: 767px) {
+  #root {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .side-bar {
+    width: 100%;
+    display: none;
+  }
+
+  .side-bar.visible {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .Add-car-container,
+  .delete-car-container,
+  .main-page-container,
+  .reservation-page-container,
+  .login-page-container {
+    width: 100%;
+  }
+
+  .btn-reserve-form,
+  .nav-reserve-form,
+  .add-car-card-container {
+    margin-top: 55px;
+  }
+
+  .reserve-input-div {
+    width: 100%;
+  }
+
+  .reservation-list-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    width: 100%;
+    margin-top: 55px;
+  }
+
+  .mob-nav {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    background-color: #fff;
+    padding-right: 16px;
+    z-index: 2;
+  }
+
+  .form-body-main-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-body-nested-div {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column !important;
+  }
+
+  .form-body-nested-div-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .license-container {
+    display: none;
+  }
+
+  .humburger {
+    padding: 5px 0;
+    font-size: 45px;
+    color: #87de15;
+    z-index: 1;
+    position: fixed;
+  }
+
+  .details-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  .img-container {
+    width: 100%;
+  }
+
+  .details-container {
+    width: 90%;
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .car-name,
+  .car-model {
+    text-align: center;
+  }
+
+  .details-img {
+    height: 285px;
+  }
+
+  .delete-car-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 45px;
+  }
+}
+
+.car-card {
+  width: 200px;
+  height: 100px;
+  border: 1px solid #000;
+}
+
+#loom-companion-mv3 {
+  display: none;
+}
+
+.mb-2 input {
+  font-size: 18px;
+}
+
+.btn-primary {
+  background-color: #87de15;
+  box-shadow: 2px 2px 8px gray;
+  border: none;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .login-register-style {
+    margin-top: 100px;
+  }
+
+  .humburger {
+    color: #87de15;
+  }
+
+  .side-bar {
+    display: none;
+  }
+
+  .side-bar.visible {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .mob-nav {
+    display: flex;
+    align-self: flex-end;
+    font-size: 55px;
+    padding: 25px;
+    z-index: 2;
+  }
+
+  #root {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .main-page-container {
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  .details-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-container {
+    width: 90%;
+  }
+
+  .details-container {
+    width: 90%;
+  }
+
+  .nav-reserve-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column !important;
+  }
+
+  .form-body-main-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-body-nested-div {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column !important;
+  }
+
+  .form-body-nested-div-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .add-form-body-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .add-form-input-div {
+    width: 100%;
+  }
+
+  .delete-car-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: auto;
+  }
+
+  .reserve-list-body-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .reserve-item {
+    width: 100%;
+  }
+}
